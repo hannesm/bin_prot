@@ -29,3 +29,15 @@ package "xen" (
   plugin(native) = "bin_prot_xen.cmxs"
   exists_if = "bin_prot_xen.cma"
 )
+
+freestanding_linkopts = "-lbin_prot_freestanding_stubs"
+package "freestanding" (
+  version = "$(pkg_version)"
+  description = "A binary protocol generator"
+  requires = "bigarray"
+  archive(byte  ) = "bin_prot_freestanding.cma"
+  archive(native) = "bin_prot_freestanding.cmxa"
+  plugin(byte  ) = "bin_prot_freestanding.cma"
+  plugin(native) = "bin_prot_freestanding.cmxs"
+  exists_if = "bin_prot_freestanding.cma"
+)

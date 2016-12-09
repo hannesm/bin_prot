@@ -8,4 +8,5 @@ generate ~package:"bin_prot"
   ; oasis_lib "bin_shape_lib"
   ; file "META" ~section:"lib"
   ; oasis_lib "bin_prot_xen"
+  ; oasis_lib "bin_prot_freestanding"
   ]

@@ -31,6 +31,10 @@ Flag xen
   Description:        Build Xen support
   Default:            false
 
+Flag freestanding
+  Description:        Build freestanding support
+  Default:            false
+
 Library bin_prot
   Path:         src
   Pack:         true
@@ -70,3 +74,13 @@ Library bin_prot_xen
   BuildDepends:       bigarray
   CSources:           blit_stubs_xen.c, config.h, float_stubs_xen.c
   CCOpt:              -O2 $XEN_CFLAGS
+
+Library bin_prot_freestanding
+  Build$:             flag(freestanding)
+  CompiledObject:     best
+  Path:               src
+  FindlibParent:      bin_prot
+  Findlibname:        freestanding
+  BuildDepends:       bigarray
+  CSources:           blit_stubs_freestanding.c, config.h, float_stubs_freestanding.c
+  CCOpt:              -O2 $FREESTANDING_CFLAGS
